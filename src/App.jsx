@@ -1,24 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store/store';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import ProductList from './pages/ProductList';
-import CartItem from './pages/CartItem';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
+  const handleGetStarted = () => {
+    window.location.href = "#plants";
+  };
+
   return (
-    <Provider store={store}>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/cart" element={<CartItem />} />
-        </Routes>
-      </Router>
-    </Provider>
+    <div className="App">
+      <div className="landing-page">
+        <h1>Welcome to Paradise Nursery</h1>
+
+        <p>
+          Discover the beauty of nature with our collection
+          of beautiful indoor houseplants. Bring life, freshness,
+          and greenery into your home.
+        </p>
+
+        <button
+          className="get-started-button"
+          onClick={handleGetStarted}
+        >
+          Get Started
+        </button>
+      </div>
+    </div>
   );
 }
 
